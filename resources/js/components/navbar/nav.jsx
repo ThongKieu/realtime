@@ -117,17 +117,17 @@ function NavListMenu() {
 
     const renderItems = navListMenuItems.map(({ title }) => (
         <a href="#" key={title}>
-            <MenuItem>
+            <profileMenuItems>
                 <Typography variant="h6" color="blue-gray" className="mb-1">
                     {title}
                 </Typography>
-            </MenuItem>
+            </profileMenuItems>
         </a>
     ));
 
     return (
         <React.Fragment>
-            <Menu allowHover open={isMenuOpen} handler={setIsMenuOpen}>
+            <Menu allowHover open={isMenuOpen} handler={setIsMenuOpen} >
                 <MenuHandler>
                     <Typography as="a" href="#" variant="small" className="font-normal">
                         <MenuItem className="items-center hidden gap-2 text-blue-gray-900 lg:flex lg:rounded-full">
@@ -140,7 +140,7 @@ function NavListMenu() {
                         </MenuItem>
                     </Typography>
                 </MenuHandler>
-                <MenuList className="hidden w-[36rem] gap-3 overflow-visible lg:grid">
+                <MenuList className="hidden w-[10rem] gap-3 overflow-visible lg:grid">
                     <ul className="flex flex-col w-full gap-1 ">
                         {renderItems}
                     </ul>
@@ -198,7 +198,7 @@ function NavList() {
     );
 }
 
-function Navbar1() {
+function NavbarDefault() {
     const [isNavOpen, setIsNavOpen] = React.useState(false);
 
     const toggleIsNavOpen = () => setIsNavOpen((cur) => !cur);
@@ -233,10 +233,10 @@ function Navbar1() {
                 </IconButton>
                 <ProfileMenu />
             </div>
-            <Collapse open={isNavOpen} className="overflow-scroll">
+            <Collapse open={isNavOpen} className="overflow-scroll ">
                 <NavList />
             </Collapse>
         </Navbar>
     );
 }
-export default Navbar1
+export default NavbarDefault
