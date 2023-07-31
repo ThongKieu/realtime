@@ -29,18 +29,6 @@ const profileMenuItems = [
         icon: UserCircleIcon,
         href: '/'
     },
-    //   {
-    //     label: "Edit Profile",
-    //     icon: Cog6ToothIcon,
-    //   },
-    //   {
-    //     label: "Inbox",
-    //     icon: InboxArrowDownIcon,
-    //   },
-    //   {
-    //     label: "Help",
-    //     icon: LifebuoyIcon,
-    //   },
     {
         label: "Sign Out",
         icon: PowerIcon,
@@ -103,11 +91,12 @@ function ProfileMenu() {
 const navListMenuItems = [
     {
         title: "VỊ TRÍ",
+        href: "/"
 
     },
     {
         title: "DANH SÁCH THỢ",
-
+        href: "/"
     },
 
 ];
@@ -115,14 +104,12 @@ const navListMenuItems = [
 function NavListMenu() {
     const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
-    const renderItems = navListMenuItems.map(({ title }) => (
-        <a href="#" key={title}>
-            <profileMenuItems>
+    const renderItems = navListMenuItems.map(({ title, href }) => (
+        <NavLink to={href} key={title}>
                 <Typography variant="h6" color="blue-gray" className="mb-1">
                     {title}
                 </Typography>
-            </profileMenuItems>
-        </a>
+        </NavLink>
     ));
 
     return (
@@ -167,12 +154,12 @@ const navListItems = [
     {
         id: 2,
         label: "Tìm Khách Hàng",
-        icon: UserCircleIcon, href: '/blog'
+        icon: UserCircleIcon, href: '/tim-khach-hang'
     },
     {
         id: 3,
         label: "Báo Giá",
-        icon: CubeTransparentIcon, href: '/homeReact'
+        icon: CubeTransparentIcon, href: '/blog'
     },
     {
         id: 4,

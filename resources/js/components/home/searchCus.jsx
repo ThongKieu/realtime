@@ -1,9 +1,9 @@
 import React from 'react'
 
-function HomeReactjs() {
+function SearchCustomer() {
   return (
     <div>HomeReactjs</div>
   )
 }
 
-export default HomeReactjs
+export default SearchCustomer
