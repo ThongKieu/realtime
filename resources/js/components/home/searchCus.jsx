@@ -1,8 +1,14 @@
 import React from 'react'
+import DataTableTest from './datatablesTest'
+//jQuery libraries
+
 
 function SearchCustomer() {
+
   return (
-    <div>HomeReactjs</div>
+    <div>
+        <DataTableTest/>
+    </div>
   )
 }
 

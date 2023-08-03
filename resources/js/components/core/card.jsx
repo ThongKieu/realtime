@@ -1,84 +1,60 @@
 /* eslint-disable react/prop-types */
 import {
-  Card,
-  CardBody,
-  Typography,
+    Card,
+    CardBody,
+    Typography,
 } from "@material-tailwind/react";
-// import Spreadsheet from "react-spreadsheet";
-const data = [
-  [{ value: "Vanilla" }, { value: "Chocolate" }, { value: "Chocolate" }, { value: "Chocolate" }, { value: "Chocolate" }, { value: "Chocolate" },{ value: "Vanilla" }, { value: "Chocolate" }, { value: "Chocolate" }, { value: "Chocolate" }, { value: "Chocolate" }, { value: "Chocolate" }],
-  [{ value: "Strawberry" }, { value: "Cookies" }],
-  [{ value: "Vanilla" }, { value: "Chocolate" }],[{ value: "Vanilla" }, { value: "Chocolate" }, { value: "Chocolate" }, { value: "Chocolate" }, { value: "Chocolate" }, { value: "Chocolate" },{ value: "Vanilla" }, { value: "Chocolate" }, { value: "Chocolate" }, { value: "Chocolate" }, { value: "Chocolate" }, { value: "Chocolate" }],
-  [{ value: "Strawberry" }, { value: "Cookies" }],
-  [{ value: "Vanilla" }, { value: "Chocolate" }],[{ value: "Vanilla" }, { value: "Chocolate" }, { value: "Chocolate" }, { value: "Chocolate" }, { value: "Chocolate" }, { value: "Chocolate" },{ value: "Vanilla" }, { value: "Chocolate" }, { value: "Chocolate" }, { value: "Chocolate" }, { value: "Chocolate" }, { value: "Chocolate" }],
-  [{ value: "Strawberry" }, { value: "Cookies" }],
-  [{ value: "Vanilla" }, { value: "Chocolate" }],[{ value: "Vanilla" }, { value: "Chocolate" }, { value: "Chocolate" }, { value: "Chocolate" }, { value: "Chocolate" }, { value: "Chocolate" },{ value: "Vanilla" }, { value: "Chocolate" }, { value: "Chocolate" }, { value: "Chocolate" }, { value: "Chocolate" }, { value: "Chocolate" }],
-  [{ value: "Strawberry" }, { value: "Cookies" }],
-  [{ value: "Vanilla" }, { value: "Chocolate" }],
-];
-function CardMain(props) {
-  return (
-    <div>
-    <div className="flex">
-      <Card className="m-1 mt-6 border border-solid w-96">
-        <CardBody className="p-3">
-          <Typography className="text-center" variant="h5" color="blue-gray">
-            {props.title}
-          </Typography>
-        </CardBody>
-      </Card>
-      <Card className="m-1 mt-6 border border-blue-600 border-solid shadow-blue-400 w-96">
-        <CardBody className="flex justify-between p-3">
-          <Typography className="text-center text-blue-600" variant="h5" color="blue-gray">
-            Lịch Nhận
-          </Typography>
-          <Typography className="text-center text-blue-600" variant="paragraph" color="blue-gray">
-            {props.countNhan}
-          </Typography>
-        </CardBody>
-      </Card>
-      <Card className="m-1 mt-6 border border-solid border-yellow-600-600 shadow-orange-400 w-96">
-        <CardBody className="flex justify-between p-3">
-          <Typography className="text-center text-orange-600" variant="h5" color="blue-gray">
-            Lịch Chưa Phân
-          </Typography>
-          <Typography className="text-center text-orange-600" variant="paragraph" color="blue-gray">
-            {props.countChuaPhan}
-          </Typography>
-        </CardBody>
-      </Card>
-      <Card className="m-1 mt-6 border border-green-600 border-solid shadow-green-400 w-96">
-        <CardBody className="flex justify-between p-3">
-          <Typography className="text-center text-green-600" variant="h5" color="blue-gray">
-            Lịch Đã Phân
-          </Typography>
-          <Typography className="text-center text-green-600" variant="paragraph" color="blue-gray">
-            {props.countDaPhan}
-          </Typography>
-        </CardBody>
-      </Card>
-      <Card className="m-1 mt-6 border border-red-600 border-solid shadow-red-400 w-96">
-        <CardBody className="flex justify-between p-3">
-          <Typography className="text-center text-red-600" variant="h5" color="blue-gray">
-            Lịch Hủy
-          </Typography>
-          <Typography className="text-center text-red-600" variant="paragraph" color="blue-gray">
-            {props.countHuy}
-          </Typography>
-        </CardBody>
-      </Card>
-      </div>
-      {/* <div className="grid grid-cols-12 mt-2">
-        <div className="col-span-6 mr-1 overflow-scroll">
-          <Spreadsheet data={data}></Spreadsheet>
-        </div>
-        <div className="col-span-6 ml-1 overflow-scroll">
-          <Spreadsheet data={data}></Spreadsheet>
-        </div>
 
-      </div> */}
-    </div>
-  )
+function CardMain() {
+    const DataTitle = [
+        {
+            id: 1,
+            title: 'Mới',
+            count: 0,
+            typographyColor: 'text-center  text-blue-600 text-sm',
+            cardBorderColor: 'm-1  border border-solid shadow-blue-400  border-blue-600 justify-center  w-24 rounded',
+        },
+        {
+            id: 2,
+            title: 'Chưa Phân',
+            count: 0,
+            typographyColor: 'text-center  text-yellow-600 text-sm',
+            cardBorderColor: 'm-1  border border-solid shadow-yellow-400  w-96 border-yellow-600 justify-center  w-24 rounded',
+
+        }, {
+            id: 3,
+            title: 'Đã Phân',
+            count: 0,
+            typographyColor: 'text-center  text-green-600 text-sm',
+            cardBorderColor: 'm-1 border border-solid shadow-green-400  w-96 border-green-600 justify-center  w-24 rounded',
+
+        },
+        {
+            id: 4,
+            title: 'Hủy',
+            count: 0,
+            typographyColor: 'text-center  text-red-600 text-sm',
+            cardBorderColor: 'm-1 border border-solid shadow-red-400  w-96 border-red-600 justify-center  w-24 rounded',
+        }
+    ]
+    return (
+        <div className="flex items-center justify-between ">
+            {DataTitle.map((result, key) => {
+                return (
+                    <Card key={key} className={result.cardBorderColor} >
+                        <CardBody className="flex items-center justify-between p-1 ">
+                            <Typography className={result.typographyColor} variant="paragraph" color="blue-gray">
+                                {result.title}
+                            </Typography>
+                            <Typography className={result.typographyColor} variant="paragraph" color="blue-gray">
+                             {result.count}
+                            </Typography>
+                        </CardBody>
+                    </Card>
+                )
+            })}
+        </div>
+    )
 }
 
 export default CardMain

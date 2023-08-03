@@ -11,11 +11,11 @@ export default defineConfig({
         }),
     ],
     server: {
-        host: '192.168.1.11', // replace with the IP address of the Homestead machine
+        host: '192.168.1.13', // replace with the IP address of the Homestead machine
         https: false,
         cors: true,
         hmr: {
-            host: '192.168.1.11', // replace with the IP address of the Homestead machine
+            host: '192.168.1.13', // replace with the IP address of the Homestead machine
         }
     },
 });
